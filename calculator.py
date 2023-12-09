@@ -1,6 +1,6 @@
 import subprocess
 
-path = "Path/to/your/compilled/calculator"
+path = "/Users/fhammer/Documents/Info/Project3/cmake-build-debug/Project3"
 
 
 def calculator(input_str):

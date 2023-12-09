@@ -16,15 +16,16 @@ def test_basic_arithmetic_operations():
     assert calculator("14 + -4; q") == ["10"]
 
 
-
 # Error Handling and Edge Cases
 def test_error_handling_and_edge_cases():
-    assert calculator("3**2; q") == ["Primärausdruck erwartet"]
+    assert calculator("3**2; q") == ["Primary erwartet."]
+    assert calculator("*2; q") == ["Primary erwartet."]
+    assert calculator("/2; q") == ["Primary erwartet."]
     assert calculator("3@5; q") == ["Falsches Token"]
     assert calculator("let let = 3; q") == [
         "Bezeichner erwartet in Deklaration.",
     ]
-    
+
 
 def test_negative_numbers_and_unconventional_syntax():
     assert calculator("14 + --4; q") == ["18"]
@@ -36,6 +37,7 @@ def test_negative_numbers_and_unconventional_syntax():
 def test_sequential_operations_with_variables():
     assert calculator("let a = 4; a + 5; a * 2; q") == ["4", "9", "8"]
     assert calculator("let b = 3; 2 * b - 1; b / 2; q") == ["3", "5", "1.5"]
+
 
 def test_complex_expressions_with_mixed_operators():
     assert calculator("2 + 3 * 5 - 4 / 2; q") == ["15"]
